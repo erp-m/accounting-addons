@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="account.invoice_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook//field[@name='invoice_line']//field[@name='account_analytic_id']" position="attributes">
-                    <attribute name="attrs">{'required': [('costcenter_policy', '=', 'always'), ('invoice_state',  'in', ['draft', False])], 'invisible': [('costcenter_policy', '=', 'never')]}</attribute>
+                    <attribute name="attrs">{'required': [('analytic_dimension_policy', '=', 'always'), ('invoice_state',  'in', ['draft', False])], 'invisible': [('analytic_dimension_policy', '=', 'never')]}</attribute>
                 </xpath>
             </field>
         </record>
@@ -19,7 +19,7 @@
             <field name="inherit_id" ref="account.invoice_supplier_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook//field[@name='invoice_line']//field[@name='account_analytic_id']" position="attributes">
-                    <attribute name="attrs">{'required': [('costcenter_policy', '=', 'always'), ('invoice_state',  'in', ['draft', False])], 'invisible': [('costcenter_policy', '=', 'never')]}</attribute>
+                    <attribute name="attrs">{'required': [('analytic_dimension_policy', '=', 'always'), ('invoice_state',  'in', ['draft', False])], 'invisible': [('analytic_dimension_policy', '=', 'never')]}</attribute>
                 </xpath>
             </field>
         </record>

@@ -13,11 +13,12 @@ class AccountAccount(models.Model):
         return self.env['account.account.type']._get_policies()
 
     analytic_policy = fields.Selection(
-            seelction='_get_policies',
+            selection='_get_policies',
             string='Policy for analytic dimension'
     )
 
     analytic_dimension_policy = fields.Selection(
+        selection='_get_policies',
         compute='_get_analytic_dimension_policy',
         store=True,
         related='',

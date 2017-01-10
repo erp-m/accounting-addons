@@ -7,10 +7,10 @@
             <field name="model">account.move</field>
             <field name="inherit_id" ref="account.view_move_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook//field[@name='line_id']/form//field[@name='account_analytic_id']" position="attributes">
+                <xpath expr="//notebook//field[@name='line_id']/form//field[@name='analytic_account_id']" position="attributes">
                     <attribute name="attrs">{'required': [('analytic_dimension_policy', '=', 'always'), ('move_state',  'in', ['draft', False])], 'invisible': [('analytic_dimension_policy', '=', 'never')]}</attribute>
                 </xpath>
-                <xpath expr="//notebook//field[@name='line_id']/tree/field[@name='account_analytic_id']" position="attributes">
+                <xpath expr="//notebook//field[@name='line_id']/tree/field[@name='analytic_account_id']" position="attributes">
                     <attribute name="attrs">{'required': [('analytic_dimension_policy', '=', 'always'), ('move_state',  'in', ['draft', False])], 'invisible': [('analytic_dimension_policy', '=', 'never')]}</attribute>
                 </xpath>
             </field>

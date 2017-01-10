@@ -5,7 +5,7 @@
 
 {
     'name': 'Move Line Report to XLS - Cost Center',
-    'version': '8.0.0.0.1',
+    'version': '8.0.0.0.2',
     'license': 'AGPL-3',
     'author': 'ICTSTUDIO',
     'category': 'Cost Center',

@@ -7,7 +7,7 @@
             <field name="model">account.move.line</field>
             <field name="inherit_id" ref="account.view_move_line_form"/>
             <field name="arch" type="xml">
-                <field name="account_analytic_id" position="attributes">
+                <field name="analytic_account_id" position="attributes">
                     <attribute name="attrs">{'required': [('analytic_dimension_policy', '=', 'always'), ('move_state',  'in', ['draft', False])], 'invisible': [('analytic_dimension_policy', '=', 'never')]}</attribute>
                 </field>
             </field>
@@ -19,7 +19,7 @@
             <field name="inherit_id" ref="account.view_move_line_tree"/>
             <field name="priority">1</field>
             <field name="arch" type="xml">
-                <field name="account_analytic_id" position="attributes">
+                <field name="analytic_account_id" position="attributes">
                     <attribute name="attrs">{'required': [('analytic_dimension_policy', '=', 'always'), ('move_state',  'in', ['draft', False])], 'invisible': [('analytic_dimension_policy', '=', 'never')]}</attribute>
                 </field>
             </field>

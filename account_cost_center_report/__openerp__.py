@@ -4,7 +4,7 @@
 
 {
     "name": 'Cost Center Report',
-    "version": "8.0.0.0.1",
+    "version": "8.0.0.0.2",
     "author": "ICTSTUDIO, André Schenkels",
     "website": "http://www.ictstudio.eu",
     "category": "Accounting & Finance",
