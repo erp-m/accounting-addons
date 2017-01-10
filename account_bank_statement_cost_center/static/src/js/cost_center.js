@@ -28,6 +28,24 @@ openerp.account_bank_statement_cost_center = function (instance) {
 
         },
 
+        start: function() {
+            this._super();
+            var self = this;
+            // Retreive statement infos and reconciliation data from the model
+            var lines_filter = [['journal_entry_id', '=', false], ['account_id', '=', false]];
+            var deferred_promises = [];
+
+            // Get operation templates
+            deferred_promises.push(new instance.web.Model("account.statement.operation.template")
+                .query(['id','name','account_id','label','amount_type','amount','tax_id','analytic_account_id','cost_center_id'])
+                .all().then(function (data) {
+                    _(data).each(function(preset){
+                        self.presets[preset.id] = preset;
+                    });
+                })
+            );
+        },
+
     });
 
     instance.web.account.bankStatementReconciliationLine.include({

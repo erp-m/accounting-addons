@@ -5,7 +5,7 @@
 
 {
     'name': 'Cost Center on Bank Statement',
-    'version': '8.0.1.0.1',
+    'version': '8.0.1.2.1',
     'license': 'AGPL-3',
     'author': 'ICTSTUDIO',
     'category': 'Accounting & Finance',
@@ -13,6 +13,7 @@
     'depends': ['account_cost_center'],
     'data': [
         'views/account_bank_statement.xml',
+        'views/account_statement_operation_template.xml',
         'views/assets_backend.xml',
         ],
     'installable': True,
