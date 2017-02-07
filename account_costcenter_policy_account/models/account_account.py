@@ -24,7 +24,7 @@ class AccountAccount(models.Model):
             related='',
     )
 
-    @api.depends('user_type', 'costcenter_account_policy')
+    @api.depends('user_type.costcenter_policy', 'costcenter_account_policy')
     @api.one
     def _get_costcenter_policy(self):
         if self.costcenter_account_policy:

@@ -51,24 +51,26 @@ openerp.account_costcenter_policy = function (instance) {
             this.required_fields_set = this.getParent().required_fields_set;
             },
 
-        UpdateRequiredFields: function(elt) {
-            if (elt.get('value')) {
-                this.required_fields_set[elt.name] = true;
-            } else {
-                this.required_fields_set[elt.name] = false;
-            };
-            var balanceChangedFlag = this.CheckRequiredFields(elt);
-            if (balanceChangedFlag) {
-                this.balanceChanged();      
-            } else {
-                this.$(".button_ok").text("OK").removeClass("oe_highlight").attr("disabled", "disabled");
-            };
-        },
-
-        CheckRequiredFields: function() {
-            var flag = _.every(this.required_fields_set);
-            return flag;
-        },
+        //UpdateRequiredFields: function(elt) {
+        //    this._super.apply(this, arguments);
+        //    if (elt.get('value')) {
+        //        this.required_fields_set[elt.name] = true;
+        //    } else {
+        //        this.required_fields_set[elt.name] = false;
+        //    };
+        //    var balanceChangedFlag = this.CheckRequiredFields(elt);
+        //    if (balanceChangedFlag) {
+        //        this.balanceChanged();
+        //    } else {
+        //        this.$(".button_ok").text("OK").removeClass("oe_highlight").attr("disabled", "disabled");
+        //    };
+        //},
+        //
+        //CheckRequiredFields: function() {
+        //    this._super.apply(this, arguments);
+        //    var flag = _.every(this.required_fields_set);
+        //    return flag;
+        //},
 
         formCreateInputChanged: function(elt, val) {
             this._super.apply(this, arguments);

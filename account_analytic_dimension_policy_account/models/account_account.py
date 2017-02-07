@@ -24,7 +24,7 @@ class AccountAccount(models.Model):
         related='',
     )
 
-    @api.depends('user_type', 'analytic_policy')
+    @api.depends('user_type.analytic_dimension_policy', 'analytic_policy')
     @api.one
     def _get_analytic_dimension_policy(self):
         if self.analytic_policy:

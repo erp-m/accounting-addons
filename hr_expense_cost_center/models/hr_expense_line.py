@@ -6,6 +6,10 @@ from openerp import fields, models
 
 
 class AccountMoveLine(models.Model):
+    """
+    This module adds fields to facilitate UI enforcement
+    of analytic dimensions.
+    """
     _inherit = 'account.move.line'
 
     costcenter_policy = fields.Selection(

@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
 # Copyright© 2016 ICTSTUDIO <http://www.ictstudio.eu>
 # License: AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
+
 {
-    'name': 'Account Analytic Dimension Policy - Account Specific',
-    'version': '8.0.1.0.2',
+    'name': 'HR Expense - Cost Center',
+    'version': '8.0.0.0.2',
     'license': 'AGPL-3',
     'author': 'ICTSTUDIO',
     'category': 'Accounting & Finance',
-    'depends': ['account_analytic_dimension_policy'],
+    'depends': ['hr_expense',
+                'account_cost_center'],
     'data': [
-        'views/account_account.xml',
+        'views/hr_expense.xml',
         ],
     'installable': True,
 }

@@ -12,12 +12,3 @@ class AccountAccountType(models.Model):
         '_get_policies', string='Policy for cost center dimension',
         required=True, default=lambda self: self._default_policy())
 
-    # @api.model
-    # def _get_costcenter_policies(self):
-    #     return [('optional', _('Optional')),
-    #             ('always', _('Always')),
-    #             ('never', _('Never'))]
-    #
-    # @api.model
-    # def _default_costcenter_policy(self):
-    #     return 'optional'

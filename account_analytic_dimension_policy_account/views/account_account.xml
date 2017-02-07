@@ -19,7 +19,7 @@
       <field name="inherit_id" ref="account.view_account_list" />
       <field name="arch" type="xml">
         <field name="user_type" position="after">
-          <field name="analytic_policy"/>
+          <field name="analytic_dimension_policy"/>
         </field>
       </field>
     </record>

@@ -19,7 +19,7 @@
             <field name="inherit_id" ref="account.view_account_list" />
             <field name="arch" type="xml">
                 <field name="user_type" position="after">
-                    <field name="costcenter_account_policy"/>
+                    <field name="costcenter_policy"/>
                 </field>
             </field>
         </record>
