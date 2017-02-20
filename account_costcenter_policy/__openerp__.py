@@ -14,7 +14,7 @@
         'views/account_invoice.xml',
         'views/account_move.xml',
         'views/account_move_line.xml',
-        'views/assets_backend.xml',
+        #'views/assets_backend.xml',
         ],
     'installable': True,
 }
