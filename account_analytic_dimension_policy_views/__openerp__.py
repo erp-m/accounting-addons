@@ -4,7 +4,7 @@
 
 {
     'name': 'Account Analytic Dimension Policy Views',
-    'version': '8.0.0.0.2',
+    'version': '8.0.0.0.4',
     'license': 'AGPL-3',
     'author': 'ICTSTUDIO',
     'category': 'Accounting & Finance',

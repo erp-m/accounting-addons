@@ -4,7 +4,7 @@
 
 {
     'name': 'Cost Center Policy',
-    'version': '8.0.0.0.3',
+    'version': '8.0.0.0.4',
     'license': 'AGPL-3',
     'author': 'ICTSTUDIO',
     'category': 'Accounting & Finance',
@@ -14,7 +14,7 @@
         'views/account_invoice.xml',
         'views/account_move.xml',
         'views/account_move_line.xml',
-        #'views/assets_backend.xml',
+        'views/assets_backend.xml',
         ],
     'installable': True,
 }

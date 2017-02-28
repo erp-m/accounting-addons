@@ -49,35 +49,14 @@ openerp.account_costcenter_policy = function (instance) {
             this._super.apply(this, arguments);
             this.map_costcenter_policy = this.getParent().map_costcenter_policy;
             this.required_fields_set = this.getParent().required_fields_set;
-            },
-
-        //UpdateRequiredFields: function(elt) {
-        //    this._super.apply(this, arguments);
-        //    if (elt.get('value')) {
-        //        this.required_fields_set[elt.name] = true;
-        //    } else {
-        //        this.required_fields_set[elt.name] = false;
-        //    };
-        //    var balanceChangedFlag = this.CheckRequiredFields(elt);
-        //    if (balanceChangedFlag) {
-        //        this.balanceChanged();
-        //    } else {
-        //        this.$(".button_ok").text("OK").removeClass("oe_highlight").attr("disabled", "disabled");
-        //    };
-        //},
-        //
-        //CheckRequiredFields: function() {
-        //    this._super.apply(this, arguments);
-        //    var flag = _.every(this.required_fields_set);
-        //    return flag;
-        //},
+        },
 
         formCreateInputChanged: function(elt, val) {
             this._super.apply(this, arguments);
             if (elt === this.account_id_field) {
+                this.required_fields_set['cost_center_id'] = false;
                 if (this.map_costcenter_policy[elt.get('value')] === 'always') {
                     this.cost_center_id_field.modifiers = {'required': true, 'readonly': false};
-                    this.required_fields_set['cost_center_id'] = false;
                     if (! this.cost_center_id_field.get('value')) {
                         this.$(".button_ok").text("OK").removeClass("oe_highlight").attr("disabled", "disabled");
                     };
@@ -92,11 +71,11 @@ openerp.account_costcenter_policy = function (instance) {
                 };
                 this.cost_center_id_field.field_manager.do_show();
             };
-            if (elt.name === 'cost_center_id') {
-                if ('cost_center_id' in this.required_fields_set)  {
-                    this.UpdateRequiredFields(elt);
-                };
+            if (elt.name in this.required_fields_set) {
+                this.UpdateRequiredFields(elt);
             };
+
+
         },
 
     });
