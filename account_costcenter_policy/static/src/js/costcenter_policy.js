@@ -57,9 +57,6 @@ openerp.account_costcenter_policy = function (instance) {
                 this.required_fields_set['cost_center_id'] = false;
                 if (this.map_costcenter_policy[elt.get('value')] === 'always') {
                     this.cost_center_id_field.modifiers = {'required': true, 'readonly': false};
-                    if (! this.cost_center_id_field.get('value')) {
-                        this.$(".button_ok").text("OK").removeClass("oe_highlight").attr("disabled", "disabled");
-                    };
                 } else {
                     delete this.required_fields_set['cost_center_id'];
                     if (this.map_costcenter_policy[elt.get('value')] === 'never') {
@@ -74,8 +71,17 @@ openerp.account_costcenter_policy = function (instance) {
             if (elt.name in this.required_fields_set) {
                 this.UpdateRequiredFields(elt);
             };
+            if (this.cost_center_id_field.get('value')) {
+                this.UpdateRequiredFields(this.cost_center_id_field)
+            };
 
+        },
 
+        presetClickHandler: function(e) {
+            this._super.apply(this, arguments);
+            if (this.cost_center_id_field.get('value')) {
+                this.UpdateRequiredFields(this.cost_center_id_field)
+            };
         },
 
     });

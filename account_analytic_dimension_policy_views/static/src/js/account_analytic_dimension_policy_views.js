@@ -20,10 +20,6 @@ openerp.account_analytic_dimension_policy_views = function (instance) {
                 this.required_fields_set['analytic_account_id'] = false;
                 if (this.map_analytic_dimension_policy[elt.get('value')] === 'always') {
                     this.analytic_account_id_field.modifiers = {'required': true, 'readonly': false};
-
-                    if (! this.analytic_account_id_field.get('value')) {
-                        this.$(".button_ok").text("OK").removeClass("oe_highlight").attr("disabled", "disabled");
-                    };
                 } else {
                     delete this.required_fields_set['analytic_account_id'];
                     if (this.map_analytic_dimension_policy[elt.get('value')] === 'never') {
@@ -37,6 +33,17 @@ openerp.account_analytic_dimension_policy_views = function (instance) {
             };
             if (elt.name in this.required_fields_set) {
                 this.UpdateRequiredFields(elt);
+            };
+            if (this.analytic_account_id_field.get('value')) {
+                this.UpdateRequiredFields(this.analytic_account_id_field)
+            };
+        },
+
+        presetClickHandler: function(e) {
+            this._super.apply(this, arguments);
+
+            if (this.analytic_account_id_field.get('value')) {
+                this.UpdateRequiredFields(this.analytic_account_id_field)
             };
         },
 
