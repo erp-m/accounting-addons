@@ -4,7 +4,7 @@
 
 {
     'name': 'Account Analytic Dimension Policy Views',
-    'version': '8.0.0.0.4',
+    'version': '8.0.0.0.5',
     'license': 'AGPL-3',
     'author': 'ICTSTUDIO',
     'category': 'Accounting & Finance',
@@ -13,6 +13,7 @@
         'views/account_invoice.xml',
         'views/account_move.xml',
         'views/account_move_line.xml',
+        'views/account_statement_operation_template.xml',
         'views/assets_backend.xml',
         ],
     'installable': True,

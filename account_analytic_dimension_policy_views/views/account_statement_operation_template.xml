@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_account_statement_operation_template_form" model="ir.ui.view">
+            <field name="model">account.statement.operation.template</field>
+            <field name="inherit_id" ref="account.view_account_statement_operation_template_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='analytic_account_id']" position="after">
+                    <field name="analytic_dimension_policy" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='analytic_account_id']" position="attributes">
+                    <attribute name="attrs">{'required': [('analytic_dimension_policy', '=', 'always')], 'invisible': [('analytic_dimension_policy', '=', 'never')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
