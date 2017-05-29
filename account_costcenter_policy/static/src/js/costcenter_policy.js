@@ -68,12 +68,15 @@ openerp.account_costcenter_policy = function (instance) {
                 };
                 this.cost_center_id_field.field_manager.do_show();
             };
+
             if (elt.name in this.required_fields_set) {
                 this.UpdateRequiredFields(elt);
-            };
+            }
+            ;
             if (this.cost_center_id_field.get('value')) {
                 this.UpdateRequiredFields(this.cost_center_id_field)
-            };
+            }
+            ;
 
         },
 

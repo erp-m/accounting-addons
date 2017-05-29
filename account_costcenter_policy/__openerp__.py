@@ -4,11 +4,14 @@
 
 {
     'name': 'Cost Center Policy',
-    'version': '8.0.0.0.5',
+    'version': '8.0.0.0.6',
     'license': 'AGPL-3',
-    'author': 'ICTSTUDIO',
+    'author': 'ICTSTUDIO, André Schenkels',
     'category': 'Accounting & Finance',
-    'depends': ['account_analytic_dimension_policy'],
+    'depends': [
+        'account_analytic_dimension_policy',
+        'account_cost_center'
+    ],
     'data': [
         'views/account_account_type.xml',
         'views/account_invoice.xml',
