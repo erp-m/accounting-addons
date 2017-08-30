@@ -10,7 +10,8 @@
     'category': 'Accounting & Finance',
     'depends': [
         'account_analytic_dimension_policy',
-        'operating_unit'
+        'account_operating_unit_invoice_line',
+        'account_bank_statement_operating_unit'
         ],
     'data': [
         'views/account_account_type.xml',

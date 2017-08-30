@@ -1,12 +1,9 @@
-.. image:: https://img.shields.io/badge/license-AGPLv3-blue.svg
-   :target: https://www.gnu.org/licenses/agpl.html
-   :alt: License: AGPL-3
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+    :alt: License
 
-==================
-Cost Center Report
-==================
-
-This module adds Cost Center to the Default accounting reports. You can filter the Profit&Loss on Cost Center
+Operating Unit - Changeable Invoice Line
+========================================
+Being able to change the default invoice line operating unit. Mainly for Purchase Invoices with several lines
 
 Known issues / Roadmap
 ======================

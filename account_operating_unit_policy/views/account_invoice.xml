@@ -9,12 +9,12 @@
 
         <record id="invoice_form" model="ir.ui.view">
             <field name="model">account.invoice</field>
-            <field name="inherit_id" ref="account_operating_unit.invoice_form_inherit"/>
+            <field name="inherit_id" ref="account_operating_unit_invoice_line.invoice_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook//field[@name='invoice_line']//field[@name='operating_unit_id']" position="after">
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='operating_unit_id']" position="after">
                     <field name="operating_unit_policy" invisible="1"/>
                 </xpath>
-                <xpath expr="//notebook//field[@name='invoice_line']//field[@name='operating_unit_id']" position="attributes">
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='operating_unit_id']" position="attributes">
                     <attribute name="attrs">{'required': [('operating_unit_policy', '=', 'always'), ('invoice_state',  'in', ['draft', False])], 'invisible': [('operating_unit_policy', '=', 'never')]}</attribute>
                 </xpath>
             </field>
@@ -22,12 +22,12 @@
 
         <record id="invoice_supplier_form" model="ir.ui.view">
             <field name="model">account.invoice</field>
-            <field name="inherit_id" ref="account_operating_unit.invoice_supplier_form_inherit"/>
+            <field name="inherit_id" ref="account_operating_unit_invoice_line.invoice_supplier_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook//field[@name='invoice_line']//field[@name='operating_unit_id']" position="after">
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='operating_unit_id']" position="after">
                     <field name="operating_unit_policy" invisible="1"/>
                 </xpath>
-                <xpath expr="//notebook//field[@name='invoice_line']//field[@name='operating_unit_id']" position="attributes">
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='operating_unit_id']" position="attributes">
                     <attribute name="attrs">{'required': [('operating_unit_policy', '=', 'always'), ('invoice_state',  'in', ['draft', False])], 'invisible': [('operating_unit_policy', '=', 'never')]}</attribute>
                 </xpath>
             </field>
