@@ -10,17 +10,12 @@ _logger = logging.getLogger(__name__)
 class AccountInvoiceLine(models.Model):
     _inherit = 'account.invoice.line'
 
-    @api.model
-    def _default_operating_unit(self):
-        if self.invoice_id and self.invoice_id.operating_unit_id:
-            return self.invoice_id.operating_unit_id
-
     operating_unit_id = fields.Many2one(
         comodel_name='operating.unit',
         related=False,
         string='Operating Unit',
         readonly=False,
-        default=_default_operating_unit
+        # default=_default_operating_unit
     )
 
     @api.model
@@ -28,12 +23,6 @@ class AccountInvoiceLine(models.Model):
         res = super(AccountInvoiceLine, self).move_line_get_item(line)
         if line.operating_unit_id:
             res['operating_unit_id'] = line.operating_unit_id.id
-        return res
-
-    def move_line_get(self, cr, uid, invoice_id, context=None):
-        res = super(AccountInvoiceLine,
-                    self).move_line_get(cr, uid, invoice_id, context=context)
-        _logger.debug("RES: %s", res)
         return res
 
     @api.model
@@ -44,9 +33,9 @@ class AccountInvoiceLine(models.Model):
         res: The move line entries produced so far by the parent move_line_get.
         """
 
-        res = super(AccountInvoiceLine, self)._anglo_saxon_sale_move_lines(i_line, res)
-        _logger.debug('Incoming Anglosaxon RES: %s', res)
-
+        res = super(AccountInvoiceLine, self)._anglo_saxon_sale_move_lines(
+            i_line, res
+        )
         for moveline in res:
             if moveline.get('invl_id'):
                 invoice_line = self.env['account.invoice.line'].search(
@@ -55,8 +44,7 @@ class AccountInvoiceLine(models.Model):
                     ]
                 )
                 if invoice_line and invoice_line.operating_unit_id:
-                    moveline.update({'operating_unit_id': invoice_line.operating_unit_id.id})
-
-
-        _logger.debug('Outgoing Anglosaxxon RES: %s', res)
+                    moveline.update(
+                        {'operating_unit_id': invoice_line.operating_unit_id.id}
+                    )
         return res

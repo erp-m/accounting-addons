@@ -14,6 +14,9 @@
                 <xpath expr="//field[@name='invoice_line']/tree/field[@name='account_id']" position="after">
                     <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
                 </xpath>
+                <xpath expr="//field[@name='invoice_line']" position="attributes">
+                    <attribute name="context">{'default_operating_unit_id': operating_unit_id,'partner_id': partner_id, 'price_type': context.get('price_type') or False, 'type': type}</attribute>
+                </xpath>
             </field>
         </record>
 
@@ -23,6 +26,9 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='invoice_line']/tree/field[@name='account_id']" position="after">
                     <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line']" position="attributes">
+                    <attribute name="context">{'default_operating_unit_id': operating_unit_id,'type': type}</attribute>
                 </xpath>
             </field>
         </record>
