@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2017 ICTSTUDIO <http://www.ictstudio.eu>
+  ~ License: AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
+  -->
+
+<openerp>
+<data>
+    <record id="view_account_move_line_report_tree" model="ir.ui.view">
+        <field name="model">account.move.line.report</field>
+        <field name="inherit_id" ref="account_move_line_report.view_account_move_line_report_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="product_maincategory" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_move_line_report_search" model="ir.ui.view">
+        <field name="model">account.move.line.report</field>
+        <field name="inherit_id" ref="account_move_line_report.view_account_move_line_report_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="product_maincategory"/>
+            </xpath>
+            <xpath expr="//filter[@string='Partner']" position="after">
+                <filter string="Top Level Category" context="{'group_by':'product_maincategory'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_move_line_report_graph" model="ir.ui.view">
+        <field name="model">account.move.line.report</field>
+        <field name="arch" type="xml">
+            <graph string="Entries Analysis Main Group" type="pivot">
+                <field name="product_maincategory" type="row"/>
+                <field name="period_id" type="col"/>
+                <field name="debit" type="measure"/>
+                <field name="credit" type="measure"/>
+                <field name="balance" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_account_move_line_report_maincategory" model="ir.actions.act_window">
+        <field name="name">Journal Items Main Category</field>
+        <field name="res_model">account.move.line.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph</field>
+        <field name="search_view_id" ref="view_account_move_line_report_search"/>
+        <field name="view_id" ref="view_account_move_line_report_graph"/>
+        <field name="context">{'group_by':[], 'search_default_thisyear':1, 'group_by_no_leaf':1}</field>
+        <field name="help">From this view, have an analysis of your different financial accounts. The document shows your debit and credit taking in consideration some criteria you can choose by using the search tool.</field>
+    </record>
+    <menuitem action="action_account_move_line_report_maincategory" id="menu_action_account_move_line_report_maincategory"
+        parent="account.menu_action_account_entries_report_all"
+        groups="account.group_account_manager"
+        sequence="3"/>
+</data>
+</openerp>
