@@ -88,7 +88,6 @@
         </field>
     </record>
     <record id="action_account_move_line_report_all" model="ir.actions.act_window">
-        <field name="name">Journal Items Advanced Analysis</field>
         <field name="res_model">account.move.line.report</field>
         <field name="view_type">form</field>
         <field name="view_mode">graph</field>

@@ -43,7 +43,7 @@
     </record>
 
     <record id="action_account_move_line_report_maincategory" model="ir.actions.act_window">
-        <field name="name">Journal Items Main Category</field>
+        <field name="name">Top Level Category View</field>
         <field name="res_model">account.move.line.report</field>
         <field name="view_type">form</field>
         <field name="view_mode">graph</field>
