@@ -12,6 +12,7 @@
         'account',
         ],
     'data': [
+        'security/ir.model.access.csv',
         'report/account_move_line_report.xml',
         ],
     'installable': True,
