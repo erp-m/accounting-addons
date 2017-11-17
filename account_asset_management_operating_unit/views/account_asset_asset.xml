@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright © 2017 ICTSTUDIO <http://www.ictstudio.eu>
+  ~ License: AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
+  -->
+
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_account_asset_asset_form">
+            <field name="name">account.asset.asset.form</field>
+            <field name="model">account.asset.asset</field>
+            <field name="inherit_id" ref="account_asset_management.view_account_asset_asset_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="operating_unit_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_account_asset_asset_tree">
+            <field name="name">account.asset.asset.tree</field>
+            <field name="model">account.asset.asset</field>
+            <field name="inherit_id" ref="account_asset_management.view_account_asset_asset_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="operating_unit_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_asset_asset_hierarchy_tree">
+            <field name="name">account.asset.asset.hierarchy</field>
+            <field name="model">account.asset.asset</field>
+            <field name="inherit_id" ref="account_asset_management.view_account_asset_asset_hierarchy_tree"/>
+            <field name="field_parent">child_ids</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="operating_unit_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_asset_search" model="ir.ui.view">
+            <field name="name">account.asset.asset.search</field>
+            <field name="model">account.asset.asset</field>
+            <field name="inherit_id" ref="account_asset_management.view_account_asset_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="operating_unit_id"/>
+                </xpath>
+                <xpath expr="//filter[@string='Category']" position="after">
+                    <filter string="Operating Unit" domain="" context="{'group_by':'operating_unit_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
