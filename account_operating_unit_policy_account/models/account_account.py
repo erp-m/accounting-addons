@@ -14,7 +14,7 @@ class AccountAccount(models.Model):
 
     operating_unit_account_policy = fields.Selection(
             selection='_get_policies',
-            string='Policy for cost center dimension'
+            string='Policy for Operating Unit'
     )
 
     operating_unit_policy = fields.Selection(
